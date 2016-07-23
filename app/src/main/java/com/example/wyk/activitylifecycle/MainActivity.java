@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    public static final String BOOK_NAME_OF_CATEGORY_PHISYCAL = "book_name";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
         final EditText editText = (EditText) findViewById(R.id.activity_main_edit_text);
 
         if (button != null) {
-            button.setOnClickListener(new View.OnClickListener(){
+            button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   Intent intent = new Intent(MainActivity.this, ActivitySecond.class);
-                    intent.putExtra("name", editText.getText().toString());
+                    Intent intent = new Intent(MainActivity.this, ActivitySecond.class);
+                    intent.putExtra(BOOK_NAME_OF_CATEGORY_PHISYCAL, editText.getText().toString());
                     startActivity(intent);
                     //Toast.makeText(MainActivity.this, "hello world", Toast.LENGTH_SHORT).show();
                 }
