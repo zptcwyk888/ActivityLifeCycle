@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -15,13 +16,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: ");
         Button button = (Button) findViewById(R.id.activity_main_button);
+        final EditText editText = (EditText) findViewById(R.id.activity_main_edit_text);
 
         if (button != null) {
             button.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                    Intent intent = new Intent(MainActivity.this, ActivitySecond.class);
-                    intent.putExtra("name", "we are learning intent");
+                    intent.putExtra("name", editText.getText().toString());
                     startActivity(intent);
                     //Toast.makeText(MainActivity.this, "hello world", Toast.LENGTH_SHORT).show();
                 }

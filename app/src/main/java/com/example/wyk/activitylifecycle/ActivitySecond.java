@@ -13,6 +13,7 @@ public class ActivitySecond extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String infoItent = getIntent().getStringExtra("name");
+        //String infoItent2 = getIntent().getStringExtra("sex");
         Toast.makeText(ActivitySecond.this, infoItent, Toast.LENGTH_SHORT).show();
     }
 }
