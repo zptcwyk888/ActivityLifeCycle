@@ -15,19 +15,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: ");
         Button button = (Button) findViewById(R.id.activity_main_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivitySecond.class);
-                startActivity(intent);
-            }
-        });
+
+        if (button != null) {
+            button.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                   Intent intent = new Intent(MainActivity.this, ActivitySecond.class);
+                    intent.putExtra("name", "we are learning intent");
+                    startActivity(intent);
+                    //Toast.makeText(MainActivity.this, "hello world", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Log.d(TAG, "onStart: ");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
     }
 
     @Override
